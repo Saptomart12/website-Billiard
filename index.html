@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billiard Dewa Sapto - Sewa Meja Billiard All Class</title>
+    <style>
+        :root {
+            --primary: #e60000;
+            --dark: #121212;
+            --light: #f5f5f5;
+            --accent: #ff3333;
+            --secondary: #222222;
+            --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: black;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: var(--text-shadow);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .auth-btn:hover {
+            background-color: var(--accent);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/WhatsApp\ Image\ 2025-05-10\ at\ 21.48.55_c5e9a301.jpg") center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+            text-shadow: var(--text-shadow);
+        }
+        
+        .hero span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-btn {
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .features {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            background-color: var(--secondary);
+        }
+        
+        .feature-card {
+            background-color: var(--dark);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .rooms {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            text-shadow: var(--text-shadow);
+        }
+        
+        .room-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .room-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+        }
+        
+        .room-img {
+            height: 200px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .room-info {
+            padding: 1.5rem;
+        }
+        
+        .room-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .room-info p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+        
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .testimonials {
+            padding: 5rem 2rem;
+            background-color: var(--secondary);
+            text-align: center;
+        }
+        
+        .testimonial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--dark);
+            padding: 2rem;
+            border-radius: 8px;
+            position: relative;
+            border: 1px solid #333;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .contact {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            padding: 0.8rem;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: var(--secondary);
+            color: var(--light);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        footer {
+            background-color: black;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.3);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links li {
+            margin: 0 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-icons {
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Login Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            border: 1px solid var(--primary);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary);
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .login-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Notifikasi */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem;
+            background-color: #292929;
+            color: var(--light);
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            max-width: 300px;
+            display: none;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Animasi */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card, .room-card, .testimonial-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-bowling-ball"></i>
+                8 Ball Pool DewA
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Beranda</a></li>
+                <li><a href="#rooms">Ruangan</a></li>
+                <li><a href="#features">Fasilitas</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <button class="auth-btn" id="loginBtn">Masuk</button>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Pengalaman Bermain <span>Billiard</span> Sensasi Dewa</h1>
+        <p>Nikmati sensasi permainan billiard dalam suasana VIP dengan fasilitas terbaik dan layanan profesional. Rasakan pengalaman bermain yang berbeda dengan meja billiard standar internasional.</p>
+        <a href="/dashboard.html" class="cta-btn pulse">Pesan Sekarang</a>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="feature-card">
+            <i class="fas fa-trophy"></i>
+            <h3>Meja Kualitas Kompetisi</h3>
+            <p>Semua meja billiard kami adalah kualitas premium yang digunakan dalam turnamen profesional untuk pengalaman bermain terbaik.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-glass-cheers"></i>
+            <h3>Ruangan VIP Premium</h3>
+            <p>Nikmati permainan di ruangan VIP yang nyaman dengan privasi maksimal, sistem audio, dan layanan F&B eksklusif.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-concierge-bell"></i>
+            <h3>Layanan Prima</h3>
+            <p>Staf kami yang terlatih siap memberikan pelayanan terbaik untuk memastikan kenyamanan Anda selama bermain.</p>
+        </div>
+    </section>
+    
+    <section class="rooms" id="rooms">
+        <h2 class="section-title">Pilihan Ruangan</h2>
+        <div class="room-cards">
+            <div class="room-card">
+                <div class="room-img">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="room-info">
+                    <h3>Ruangan Standard</h3>
+                    <p>Ruangan nyaman dengan fasilitas sofa dan mini bar. Kapasitas hingga 8 orang.</p>
+                    <span class="price">Rp 250.000/jam</span>
+                    <a href="/dashboard.html" class="cta-btn">Pesan</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <div class="room-img">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="room-info">
+                    <h3>Ruangan Premium</h3>
+                    <p>Ruangan eksklusif dengan fasilitas lengkap, sofa mewah, dan layanan pribadi. Kapasitas hingga 10 orang.</p>
+                    <span class="price">Rp 350.000/jam</span>
+                    <a href="/dashboard.html" class="cta-btn">Pesan</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <div class="room-img">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="room-info">
+                    <h3>Ruangan VIP</h3>
+                    <p>Ruangan paling mewah dengan fasilitas lengkap, karaoke, dan menu makanan ekslusif. Kapasitas hingga 15 orang.</p>
+                    <span class="price">Rp 500.000/jam</span>
+                    <a href="/dashboard.html" class="cta-btn">Pesan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Testimoni Pelanggan</h2>
+        <div class="testimonial-cards">
+            <div class="testimonial-card">
+                <p class="testimonial-text">Ruangan VIP-nya sangat nyaman dan privat. Meja billiardnya berkualitas tinggi dan staf sangat membantu. Pasti akan kembali lagi!</p>
+                <p class="testimonial-author">- Panji Angga Saputra</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Pengalaman bermain yang luar biasa! Fasilitas lengkap dan pelayanan sangat profesional. Tempat yang sempurna untuk gathering bersama rekan kerja.</p>
+                <p class="testimonial-author">- Salsabila Ramadhani Zen</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Sebagai pemain billiard reguler, saya sangat menghargai kualitas meja dan stik yang disediakan. Atmosfir tempat ini juga sangat mendukung untuk berlatih.</p>
+                <p class="testimonial-author">- Welgiovani</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="auth-btn">Kirim Pesan</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="logo">
+            <i class="fas fa-bowling-ball"></i>
+            Billiard Star
+        </div>
+        <ul class="footer-links">
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#rooms">Ruangan</a></li>
+            <li><a href="#features">Fasilitas</a></li>
+            <li><a href="#testimonials">Testimoni</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/saptomart__?igsh=MXY5YWFhZzd5dms3eA%3D%3D&utm_source=qr " class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p>&copy; 2025 Billiard Star. All rights reserved.</p>
+    </footer>
+    
+
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <h2 class="modal-title">Masuk ke Akun Anda</h2>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="auth-btn">Masuk</button>
+                <div class="form-footer">
+                    <p>Belum punya akun? <a href="#" id="registerLink">Daftar</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeRegisterModal">&times;</button>
+            <h2 class="modal-title">Daftar Akun Baru</h2>
+            <form class="login-form" id="registerForm">
+                <div class="form-group">
+                    <label for="fullname">Nama Lengkap</label>
+                    <input type="text" id="fullname" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Konfirmasi Password</label>
+                    <input type="password" id="confirm-password" class="form-control" required>
+                </div>
+                <button type="submit" class="auth-btn">Daftar</button>
+                <div class="form-footer">
+                    <p>Sudah punya akun? <a href="#" id="loginLink">Masuk</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Notifikasi -->
+    <div class="notification" id="notification"></div>
+    
+    <script>
+        // DOM Elements
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const closeModal = document.getElementById('closeModal');
+        const closeRegisterModal = document.getElementById('closeRegisterModal');
+        const registerLink = document.getElementById('registerLink');
+        const loginLink = document.getElementById('loginLink');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const notification = document.getElementById('notification');
+        
+        // Event Listeners
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        closeRegisterModal.addEventListener('click', () => {
+            registerModal.style.display = 'none';
+        });
+        
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            registerModal.style.display = 'flex';
+        });
+        
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            registerModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === registerModal) {
+                registerModal.style.display = 'none';
+            }
+        });
+        
+        // Mock database
+        const users = [
+            { username: 'admin', password: 'admin123', name: 'Administrator' },
+            { username: 'user', password: 'user123', name: 'Regular User' }
+        ];
+        
+        // Show notification
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                loginModal.style.display = 'none';
+                showNotification(`Selamat datang kembali, ${user.name}!`);
+                
+                // Save user to session storage
+                sessionStorage.setItem('currentUser', JSON.stringify(user));
+                
+                // Redirect to dashboard after 1 second
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
+            } else {
+                showNotification('Username atau password salah!');
+            }
+        });
+        
+        // Register form submission
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fullname = document.getElementById('fullname').value;
+            const email = document.getElementById('reg-email').value;
+            const username = document.getElementById('reg-username').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                showNotification('Password tidak cocok!');
+                return;
+            }
+            
+            // Check if username already exists
+            if (users.some(u => u.username === username)) {
+                showNotification('Username sudah digunakan!');
+                return;
+            }
+            
+            // Add new user
+            const newUser = { username, password, name: fullname, email };
+            users.push(newUser);
+            
+            registerModal.style.display = 'none';
+            showNotification('Pendaftaran berhasil! Silakan login.');
+            
+            // Reset form
+            registerForm.reset();
+            
+            // Show login modal
+            setTimeout(() => {
+                loginModal.style.display = 'flex';
+            }, 1000);
+        });
+        
+        // Check if user is logged in
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                loginBtn.textContent = 'Dashboard';
+                loginBtn.addEventListener('click', () => {
+                    window.location.href = 'dashboard.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
